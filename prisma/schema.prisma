@@ -134,3 +134,18 @@ model Admin {
 
   @@index([email])
 }
+
+// ============================================
+// CONTACT MESSAGES
+// ============================================
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
