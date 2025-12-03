@@ -1,0 +1,136 @@
+// Jacko Fish - Clean Schema v2
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ============================================
+// CATEGORIES
+// ============================================
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  image     String?
+  order     Int       @default(0)
+  isActive  Boolean   @default(true)
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([isActive, order])
+}
+
+// ============================================
+// PRODUCTS
+// ============================================
+
+model Product {
+  id                String         @id @default(cuid())
+  category          Category       @relation(fields: [categoryId], references: [id])
+  categoryId        String
+  name              String
+  slug              String         @unique
+  description       String?
+  price             Decimal        @db.Decimal(10, 2)
+  salePrice         Decimal?       @db.Decimal(10, 2)
+  image             String?
+  inStock           Boolean        @default(true)
+  unit              Unit           @default(KG)
+  hasCuttingOptions Boolean        @default(false)
+  cuttingStyles     CuttingStyle[]
+  featured          Boolean        @default(false)
+  order             Int            @default(0)
+  isActive          Boolean        @default(true)
+  orderItems        OrderItem[]
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([isActive, order])
+}
+
+enum Unit {
+  KG   // לק"ג
+  UNIT // ליחידה
+}
+
+enum CuttingStyle {
+  WHOLE           // שלם
+  SLICED          // פרוסות
+  FILLET_SKIN     // פילה עם עור
+  FILLET_SKINLESS // פילה בלי עור
+  BUTTERFLIED     // פתוח
+}
+
+// ============================================
+// ORDERS
+// ============================================
+
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  customerName  String
+  customerPhone String
+  customerEmail String?
+  address       String
+  city          String
+  notes         String?
+  items         OrderItem[]
+  subtotal      Decimal     @db.Decimal(10, 2)
+  deliveryFee   Decimal     @db.Decimal(10, 2) @default(0)
+  total         Decimal     @db.Decimal(10, 2)
+  status        OrderStatus @default(PENDING)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([orderNumber])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id           String        @id @default(cuid())
+  order        Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId      String
+  product      Product       @relation(fields: [productId], references: [id])
+  productId    String
+  productName  String
+  quantity     Decimal       @db.Decimal(10, 3)
+  unitPrice    Decimal       @db.Decimal(10, 2)
+  totalPrice   Decimal       @db.Decimal(10, 2)
+  cuttingStyle CuttingStyle?
+
+  @@index([orderId])
+}
+
+enum OrderStatus {
+  PENDING   // ממתין
+  CONFIRMED // אושר
+  PREPARING // בהכנה
+  READY     // מוכן
+  DELIVERED // נמסר
+  CANCELLED // בוטל
+}
+
+// ============================================
+// ADMIN
+// ============================================
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
