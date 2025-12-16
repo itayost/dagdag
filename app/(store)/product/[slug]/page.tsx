@@ -38,6 +38,9 @@ const CUTTING_STYLE_LABELS: Record<string, string> = {
   FILLET_SKIN: 'פילה עם עור',
   FILLET_SKINLESS: 'פילה בלי עור',
   BUTTERFLIED: 'פתוח',
+  LENGTHWISE_CUTS: 'חריצים לאורך',
+  HEAD_TAIL: 'ראש זנב',
+  GROUND: 'טחון',
 };
 
 export default function ProductPage({ params }: ProductPageProps) {
@@ -104,7 +107,7 @@ export default function ProductPage({ params }: ProductPageProps) {
   if (isLoading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+        <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
       </div>
     );
   }
@@ -114,7 +117,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       <div className="py-16 text-center">
         <Package className="w-12 h-12 text-slate-300 mx-auto mb-4" />
         <h1 className="text-2xl font-bold text-slate-900 mb-2">המוצר לא נמצא</h1>
-        <Link href="/" className="text-blue-600 hover:underline">
+        <Link href="/" className="text-brand-500 hover:underline">
           חזרה לדף הבית
         </Link>
       </div>
@@ -148,7 +151,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Image */}
-          <div className="aspect-square relative bg-slate-100 rounded-2xl overflow-hidden">
+          <div className="aspect-[3/2] relative bg-slate-100 rounded-2xl overflow-hidden">
             {product.image ? (
               <Image
                 src={product.image}
@@ -290,7 +293,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               className={`mt-6 w-full flex items-center justify-center gap-2 py-4 font-bold rounded-xl transition-all duration-300 ${
                 isAdding
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-blue-600 text-white hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed'
+                  : 'bg-brand-500 text-white hover:bg-brand-600 disabled:bg-slate-300 disabled:cursor-not-allowed'
               }`}
             >
               {isAdding ? (

@@ -55,7 +55,7 @@ export default function CartDrawer() {
             <ShoppingCart className="w-5 h-5 text-slate-700" />
             <h2 className="font-bold text-lg text-slate-900">סל הקניות</h2>
             {itemCount > 0 && (
-              <span className="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+              <span className="bg-brand-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
                 {itemCount}
               </span>
             )}
@@ -76,7 +76,7 @@ export default function CartDrawer() {
             <p className="text-slate-500 mb-6">הוסיפו מוצרים לסל כדי להתחיל</p>
             <button
               onClick={closeCart}
-              className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-2 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 transition-colors"
             >
               המשך בקניות
             </button>
@@ -85,16 +85,16 @@ export default function CartDrawer() {
           <>
             {/* Free Delivery Progress */}
             {amountForFreeDelivery > 0 && (
-              <div className="p-4 bg-blue-50 border-b border-blue-100">
-                <div className="flex items-center gap-2 text-blue-700 mb-2">
+              <div className="p-4 bg-brand-50 border-b border-brand-100">
+                <div className="flex items-center gap-2 text-brand-600 mb-2">
                   <Truck className="w-4 h-4" />
                   <span className="text-sm font-medium">
                     חסרים {formatPrice(amountForFreeDelivery)} למשלוח חינם!
                   </span>
                 </div>
-                <div className="h-2 bg-blue-200 rounded-full overflow-hidden">
+                <div className="h-2 bg-brand-200 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-blue-600 rounded-full transition-all duration-300"
+                    className="h-full bg-brand-500 rounded-full transition-all duration-300"
                     style={{ width: `${Math.min((subtotal / FREE_DELIVERY_THRESHOLD) * 100, 100)}%` }}
                   />
                 </div>
@@ -133,7 +133,7 @@ export default function CartDrawer() {
                 <Link
                   href="/checkout"
                   onClick={closeCart}
-                  className="block w-full py-3 bg-blue-600 text-white font-bold text-center rounded-xl hover:bg-blue-700 transition-colors"
+                  className="block w-full py-3 bg-brand-500 text-white font-bold text-center rounded-xl hover:bg-brand-600 transition-colors"
                 >
                   לתשלום
                 </Link>

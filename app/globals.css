@@ -10,6 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand colors - matching logo blue */
+  --color-brand-50: #eef1f8;
+  --color-brand-100: #d9e0f0;
+  --color-brand-200: #b8c5e3;
+  --color-brand-300: #8ea3d1;
+  --color-brand-400: #6a82be;
+  --color-brand-500: #4a5a9a;
+  --color-brand-600: #3d4b80;
+  --color-brand-700: #333f6a;
+  --color-brand-800: #2a3456;
+  --color-brand-900: #232b47;
 }
 
 @media (prefers-color-scheme: dark) {

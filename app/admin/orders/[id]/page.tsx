@@ -56,6 +56,9 @@ const CUTTING_STYLE_LABELS: Record<string, string> = {
   FILLET_SKIN: 'פילה עם עור',
   FILLET_SKINLESS: 'פילה בלי עור',
   BUTTERFLIED: 'פתוח',
+  LENGTHWISE_CUTS: 'חריצים לאורך',
+  HEAD_TAIL: 'ראש זנב',
+  GROUND: 'טחון',
 };
 
 export default function OrderDetailPage({ params }: OrderPageProps) {

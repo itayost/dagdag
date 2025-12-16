@@ -109,7 +109,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
-                className="p-2 text-slate-700 hover:text-blue-600 transition-colors"
+                className="p-2 text-slate-700 hover:text-brand-500 transition-colors"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -147,11 +147,11 @@ export default function Header() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onFocus={() => searchQuery.length >= 2 && setShowSearchResults(true)}
                     placeholder="חיפוש מוצרים..."
-                    className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pr-5 pl-12 text-sm focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pr-5 pl-12 text-sm focus:bg-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all"
                   />
                   <button
                     type="submit"
-                    className="absolute left-1.5 top-1.5 p-1.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-sm"
+                    className="absolute left-1.5 top-1.5 p-1.5 bg-brand-500 text-white rounded-full hover:bg-brand-600 transition shadow-sm"
                   >
                     {isSearching ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -197,7 +197,7 @@ export default function Header() {
                         router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
                         setShowSearchResults(false);
                       }}
-                      className="w-full p-3 text-center text-sm text-blue-600 hover:bg-blue-50 transition-colors font-medium border-t border-slate-100"
+                      className="w-full p-3 text-center text-sm text-brand-500 hover:bg-brand-50 transition-colors font-medium border-t border-slate-100"
                     >
                       הצג את כל {searchResults.length} התוצאות
                     </button>
@@ -215,7 +215,7 @@ export default function Header() {
             {/* Cart */}
             <button
               onClick={toggleCart}
-              className="relative p-2 text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-2"
+              className="relative p-2 text-slate-700 hover:text-brand-500 transition-colors flex items-center gap-2"
             >
               <div className="relative">
                 <ShoppingCart className="w-6 h-6" strokeWidth={2} />
@@ -242,11 +242,11 @@ export default function Header() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
                   placeholder="חיפוש מוצרים..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pr-4 pl-12 text-sm focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pr-4 pl-12 text-sm focus:bg-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none"
                 />
                 <button
                   type="submit"
-                  className="absolute left-1.5 top-1.5 p-1.5 bg-blue-600 text-white rounded-full"
+                  className="absolute left-1.5 top-1.5 p-1.5 bg-brand-500 text-white rounded-full"
                 >
                   <Search className="w-4 h-4" />
                 </button>

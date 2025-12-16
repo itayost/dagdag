@@ -32,11 +32,11 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">יצירת קשר</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-brand-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300">יאשה חפץ 9, תל אביב</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-brand-400 flex-shrink-0" />
                 <div className="text-slate-300">
                   <a href="tel:0502175277" className="hover:text-white transition-colors">
                     050-2175277
@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-brand-400 flex-shrink-0" />
                 <a
                   href="mailto:jackodagim1@gmail.com"
                   className="text-slate-300 hover:text-white transition-colors"
@@ -64,7 +64,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">שעות פתיחה</h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                <Clock className="w-5 h-5 text-brand-400 flex-shrink-0" />
                 <div className="text-slate-300">
                   <p>א׳-ה׳: 8:00-20:00</p>
                   <p>ו׳: 8:00-15:30</p>
@@ -81,7 +81,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=100085391018039"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-colors"
+                className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-brand-500 transition-colors"
               >
                 <Facebook className="w-6 h-6" />
               </a>

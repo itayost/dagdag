@@ -1,7 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Package, Scissors, Star } from 'lucide-react';
 import { formatPrice } from '@/lib/utils';
+import ProductCardActions from './ProductCardActions';
 
 interface ProductCardProps {
   product: {
@@ -14,6 +17,7 @@ interface ProductCardProps {
     inStock: boolean;
     unit: 'KG' | 'UNIT';
     hasCuttingOptions: boolean;
+    cuttingStyles?: string[];
     featured: boolean;
   };
 }
@@ -31,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="group relative bg-white rounded-xl border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105"
+      className="group relative bg-white rounded-xl border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col h-full"
     >
       {/* Badges */}
       <div className="absolute top-3 right-3 z-10 flex flex-col gap-2">
@@ -54,7 +58,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Image */}
-      <div className="aspect-square relative bg-slate-100">
+      <div className="aspect-[3/2] relative bg-slate-100 flex-shrink-0">
         {product.image ? (
           <Image
             src={product.image}
@@ -72,18 +76,23 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <h3 className="text-lg font-bold text-slate-900 tracking-tight line-clamp-1">
+      <div className="p-4 flex flex-col flex-grow">
+        <h3 className="text-lg font-bold text-slate-900 tracking-tight line-clamp-2 min-h-[3.5rem]">
           {product.name}
         </h3>
 
-        {/* Cutting Options Badge */}
-        {product.hasCuttingOptions && (
-          <div className="flex items-center gap-1 mt-2 text-emerald-600">
-            <Scissors className="w-4 h-4" />
-            <span className="text-xs font-medium">אפשרויות חיתוך</span>
-          </div>
-        )}
+        {/* Cutting Options Badge - fixed height placeholder */}
+        <div className="h-6 mt-2">
+          {product.hasCuttingOptions && (
+            <div className="flex items-center gap-1 text-emerald-600">
+              <Scissors className="w-4 h-4" />
+              <span className="text-xs font-medium">אפשרויות חיתוך</span>
+            </div>
+          )}
+        </div>
+
+        {/* Spacer to push price and actions to bottom */}
+        <div className="flex-grow" />
 
         {/* Price */}
         <div className="mt-3 flex items-baseline gap-2">
@@ -103,6 +112,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           )}
           <span className="text-sm text-slate-500">/ {unitLabel}</span>
         </div>
+
+        {/* Cart Actions */}
+        <ProductCardActions product={product} />
       </div>
     </Link>
   );

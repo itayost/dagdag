@@ -31,7 +31,7 @@ export default function CartPage() {
             <ShoppingCart className="w-8 h-8 text-slate-700" />
             <h1 className="text-3xl font-black text-slate-900">סל הקניות</h1>
             {itemCount > 0 && (
-              <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+              <span className="bg-brand-500 text-white text-sm font-bold px-3 py-1 rounded-full">
                 {itemCount} פריטים
               </span>
             )}
@@ -57,7 +57,7 @@ export default function CartPage() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors"
             >
               התחל לקנות
               <ArrowRight className="w-5 h-5 rotate-180" />
@@ -81,20 +81,20 @@ export default function CartPage() {
 
                 {/* Free Delivery Progress */}
                 {amountForFreeDelivery > 0 && (
-                  <div className="mb-6 p-4 bg-blue-50 rounded-xl">
-                    <div className="flex items-center gap-2 text-blue-700 mb-2">
+                  <div className="mb-6 p-4 bg-brand-50 rounded-xl">
+                    <div className="flex items-center gap-2 text-brand-600 mb-2">
                       <Truck className="w-5 h-5" />
                       <span className="font-medium">
                         חסרים {formatPrice(amountForFreeDelivery)} למשלוח חינם!
                       </span>
                     </div>
-                    <div className="h-2 bg-blue-200 rounded-full overflow-hidden">
+                    <div className="h-2 bg-brand-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-blue-600 rounded-full transition-all duration-300"
+                        className="h-full bg-brand-500 rounded-full transition-all duration-300"
                         style={{ width: `${Math.min((subtotal / FREE_DELIVERY_THRESHOLD) * 100, 100)}%` }}
                       />
                     </div>
-                    <p className="text-xs text-blue-600 mt-2">
+                    <p className="text-xs text-brand-500 mt-2">
                       משלוח חינם בהזמנות מעל {formatPrice(FREE_DELIVERY_THRESHOLD)}
                     </p>
                   </div>
@@ -128,7 +128,7 @@ export default function CartPage() {
                 {/* Checkout Button */}
                 <Link
                   href="/checkout"
-                  className="block w-full py-4 bg-blue-600 text-white font-bold text-center rounded-xl hover:bg-blue-700 transition-colors"
+                  className="block w-full py-4 bg-brand-500 text-white font-bold text-center rounded-xl hover:bg-brand-600 transition-colors"
                 >
                   המשך לתשלום
                 </Link>

@@ -11,6 +11,9 @@ const CUTTING_STYLE_LABELS: Record<string, string> = {
   FILLET_SKIN: 'פילה עם עור',
   FILLET_SKINLESS: 'פילה בלי עור',
   BUTTERFLIED: 'פתוח',
+  LENGTHWISE_CUTS: 'חריצים לאורך',
+  HEAD_TAIL: 'ראש זנב',
+  GROUND: 'טחון',
 };
 
 interface CartItemProps {
@@ -28,7 +31,7 @@ export default function CartItem({ item, compact = false }: CartItemProps) {
     return (
       <div className="flex gap-3 py-3 border-b border-slate-100 last:border-0">
         {/* Image */}
-        <div className="w-16 h-16 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0">
+        <div className="w-20 h-14 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0">
           {item.image ? (
             <Image src={item.image} alt={item.name} fill className="object-cover" />
           ) : (
@@ -86,7 +89,7 @@ export default function CartItem({ item, compact = false }: CartItemProps) {
   return (
     <div className="flex gap-4 py-4 border-b border-slate-200 last:border-0">
       {/* Image */}
-      <div className="w-24 h-24 sm:w-32 sm:h-32 relative bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+      <div className="w-28 h-[4.5rem] sm:w-36 sm:h-24 relative bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
         {item.image ? (
           <Image src={item.image} alt={item.name} fill className="object-cover" />
         ) : (

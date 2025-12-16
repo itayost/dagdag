@@ -15,6 +15,9 @@ const CUTTING_STYLE_LABELS: Record<string, string> = {
   FILLET_SKIN: 'פילה עם עור',
   FILLET_SKINLESS: 'פילה בלי עור',
   BUTTERFLIED: 'פתוח',
+  LENGTHWISE_CUTS: 'חריצים לאורך',
+  HEAD_TAIL: 'ראש זנב',
+  GROUND: 'טחון',
 };
 
 export default function CheckoutPage() {
@@ -133,7 +136,7 @@ export default function CheckoutPage() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors"
           >
             חזרה לחנות
             <ArrowRight className="w-5 h-5 rotate-180" />
@@ -153,7 +156,7 @@ export default function CheckoutPage() {
           <p className="text-slate-500 mb-8">הוסיפו מוצרים לסל כדי להמשיך לתשלום</p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors"
           >
             לחנות
             <ArrowRight className="w-5 h-5 rotate-180" />
@@ -197,7 +200,7 @@ export default function CheckoutPage() {
                     type="text"
                     value={formData.customerName}
                     onChange={(e) => setFormData({ ...formData, customerName: e.target.value })}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all ${
                       errors.customerName ? 'border-red-300 bg-red-50' : 'border-slate-200'
                     }`}
                     placeholder="ישראל ישראלי"
@@ -217,7 +220,7 @@ export default function CheckoutPage() {
                     type="tel"
                     value={formData.customerPhone}
                     onChange={(e) => setFormData({ ...formData, customerPhone: e.target.value })}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all ${
                       errors.customerPhone ? 'border-red-300 bg-red-50' : 'border-slate-200'
                     }`}
                     placeholder="050-1234567"
@@ -238,7 +241,7 @@ export default function CheckoutPage() {
                     type="email"
                     value={formData.customerEmail}
                     onChange={(e) => setFormData({ ...formData, customerEmail: e.target.value })}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all ${
                       errors.customerEmail ? 'border-red-300 bg-red-50' : 'border-slate-200'
                     }`}
                     placeholder="email@example.com"
@@ -259,7 +262,7 @@ export default function CheckoutPage() {
                     type="text"
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all ${
                       errors.address ? 'border-red-300 bg-red-50' : 'border-slate-200'
                     }`}
                     placeholder="רחוב, מספר בית, דירה"
@@ -279,7 +282,7 @@ export default function CheckoutPage() {
                     type="text"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all ${
                       errors.city ? 'border-red-300 bg-red-50' : 'border-slate-200'
                     }`}
                     placeholder="תל אביב"
@@ -299,7 +302,7 @@ export default function CheckoutPage() {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     rows={3}
-                    className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all resize-none"
                     placeholder="הערות מיוחדות, שעות מועדפות למשלוח..."
                   />
                 </div>
@@ -309,7 +312,7 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full mt-6 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                className="w-full mt-6 py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
               >
                 {isSubmitting && <Loader2 className="w-5 h-5 animate-spin" />}
                 {isSubmitting ? 'שולח הזמנה...' : `שלח הזמנה - ${formatPrice(total)}`}
@@ -332,7 +335,7 @@ export default function CheckoutPage() {
               <div className="space-y-4 mb-6 max-h-[400px] overflow-y-auto">
                 {items.map(item => (
                   <div key={item.id} className="flex gap-3">
-                    <div className="w-16 h-16 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0">
+                    <div className="w-20 h-14 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0">
                       {item.image ? (
                         <Image src={item.image} alt={item.name} fill className="object-cover" />
                       ) : (
@@ -382,7 +385,7 @@ export default function CheckoutPage() {
 
               {/* Free Delivery Note */}
               {subtotal < FREE_DELIVERY_THRESHOLD && (
-                <p className="text-xs text-blue-600 mt-4 text-center">
+                <p className="text-xs text-brand-500 mt-4 text-center">
                   חסרים {formatPrice(FREE_DELIVERY_THRESHOLD - subtotal)} למשלוח חינם
                 </p>
               )}

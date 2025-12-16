@@ -21,7 +21,7 @@ export default function RecipesPage() {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+          className="inline-flex items-center gap-2 px-8 py-3 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors"
         >
           לחנות הדגים
           <ArrowLeft className="w-5 h-5" />

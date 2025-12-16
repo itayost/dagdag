@@ -4,9 +4,15 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@jacko.fish';
-  const password = 'admin123'; // Change this in production!
-  const name = 'מנהל ראשי';
+  const email = process.env.ADMIN_EMAIL || 'admin@example.com';
+  const password = process.env.ADMIN_PASSWORD;
+  const name = process.env.ADMIN_NAME || 'Admin';
+
+  if (!password) {
+    console.error('❌ ADMIN_PASSWORD environment variable is required');
+    console.log('Set it with: ADMIN_PASSWORD=your-secure-password npx tsx prisma/seed-admin.ts');
+    process.exit(1);
+  }
 
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 12);
@@ -30,10 +36,9 @@ async function main() {
     },
   });
 
-  console.log('Admin user created successfully:');
+  console.log('✅ Admin user created successfully:');
   console.log(`Email: ${admin.email}`);
-  console.log(`Password: ${password}`);
-  console.log('\n⚠️  Please change the password after first login!');
+  console.log(`Name: ${admin.name}`);
 }
 
 main()

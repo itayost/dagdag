@@ -48,7 +48,7 @@ export default function HeroSection() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
             טריות ואיכות
             <br />
-            <span className="text-blue-400">מוצאים רק במקום אחד</span>
+            <span className="text-brand-300">מוצאים רק במקום אחד</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed">
             דגים טריים ישירות מהים, עם מגוון אפשרויות חיתוך לבחירתכם.

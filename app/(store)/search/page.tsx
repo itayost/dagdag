@@ -57,7 +57,7 @@ function SearchContent() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <Search className="w-6 h-6 text-blue-600" />
+          <Search className="w-6 h-6 text-brand-500" />
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
             תוצאות חיפוש
           </h1>
@@ -72,7 +72,7 @@ function SearchContent() {
       {/* Loading State */}
       {isLoading && (
         <div className="flex items-center justify-center py-16">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+          <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
         </div>
       )}
 
@@ -88,7 +88,7 @@ function SearchContent() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition"
+            className="inline-flex items-center gap-2 bg-brand-500 text-white px-6 py-3 rounded-full font-medium hover:bg-brand-600 transition"
           >
             חזרה לדף הבית
           </Link>
@@ -107,7 +107,7 @@ function SearchContent() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition"
+            className="inline-flex items-center gap-2 bg-brand-500 text-white px-6 py-3 rounded-full font-medium hover:bg-brand-600 transition"
           >
             חזרה לכל המוצרים
           </Link>
@@ -134,7 +134,7 @@ function SearchContent() {
 function SearchFallback() {
   return (
     <div className="flex items-center justify-center py-16">
-      <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+      <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
     </div>
   );
 }
