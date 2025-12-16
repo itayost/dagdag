@@ -18,7 +18,7 @@
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.555.0",
-    "next": "16.0.6",
+    "next": "^16.0.10",
     "next-cloudinary": "^6.17.5",
     "prisma": "^5.22.0",
     "react": "19.2.0",
@@ -36,7 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.6",
+    "eslint-config-next": "^16.0.10",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
